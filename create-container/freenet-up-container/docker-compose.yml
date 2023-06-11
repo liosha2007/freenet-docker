@@ -14,7 +14,7 @@ services:
     volumes:
       - freenet_conf:/home/fred/conf
       - freenet_data:/home/fred/data
-#     Problems with access when using real directories
+#     Problems with access rights when using real directories
 #      - "/mnt/freenet-data/conf:/home/fred/conf:rw"
 #      - "/mnt/freenet-data/data:/home/fred/data:rw"
     environment:
