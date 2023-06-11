@@ -29,3 +29,5 @@ Examples:
 * x86-alpine-openjdk12-01497-ofi
 * arm32v7-ubuntu-18.04-01497-oni
 * arm32v7-ubuntu-18.04-01497-ofi
+
+Master branch is merged from `x86-alpine-openjdk12-01497-oni`
