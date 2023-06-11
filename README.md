@@ -30,4 +30,6 @@ Examples:
 * arm32v7-ubuntu-18.04-01497-oni
 * arm32v7-ubuntu-18.04-01497-ofi
 
-Master branch is merged from `x86-alpine-openjdk12-01497-oni`
+## Tests
+
+This branch (`arm32v7-ubuntu-18.04-01497-ofi`) is tested on NaniPi NEO 512M (Host OS is `Ubuntu 16.04.2 LTS 4.14.111`)

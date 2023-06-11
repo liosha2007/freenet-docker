@@ -2,7 +2,7 @@ version: "3.6"
 services:
   freenet:
     container_name: freenet
-    image: freenet:x86-alpine-openjdk12-01497-oni
+    image: freenet:arm32v7-ubuntu-18.04-01497-ofi
     restart: no
     #network_mode: "host"
     network_mode: "bridge"
