@@ -4,11 +4,11 @@ Docker config to build Freenet image and run node in Docker container
 
 ## Building image
 
-To build image go to `create-image` and run `freenet-build-image.sh` file.
+To build image run `build-image.sh` file.
 
 ## Running container
 
-To run container go to `create-container` and run `freenet-up-container.sh` file.
+To run container run `up-container.sh` file.
 
 ## Opening page
 

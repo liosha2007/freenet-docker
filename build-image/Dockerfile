@@ -28,11 +28,11 @@ RUN groupadd -g 1000 fredg \
 
 WORKDIR $FRED_HOME
 
-COPY ./freenet-build-image/default-freenet.ini default-freenet.ini
-COPY ./freenet-build-image/freenet-run.sh freenet-run.sh
-COPY ./freenet-build-image/docker-run.sh docker-run.sh
-COPY ./freenet-build-image/new_installer_offline_1497.jar /tmp/new_installer.jar
-COPY ./freenet-build-image/install_options.conf /tmp/install_options.conf
+COPY ./build-image/default-freenet.ini default-freenet.ini
+COPY ./build-image/freenet-run.sh freenet-run.sh
+COPY ./build-image/docker-run.sh docker-run.sh
+COPY ./build-image/new_installer_offline_1497.jar /tmp/new_installer.jar
+COPY ./build-image/install_options.conf /tmp/install_options.conf
 
 RUN chown -Rc fred:fredg $FRED_HOME \
     && chmod -Rc 700 $FRED_HOME \
