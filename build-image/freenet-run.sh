@@ -7,8 +7,6 @@ if [ "$(id -u)" -eq 0 ]; then
     exit 1
 fi
 
-whoami
-ls -la $FRED_HOME/
 echo "Running Freenet..."
 
 trapexit() {

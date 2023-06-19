@@ -2,8 +2,7 @@ FROM arm32v7/ubuntu:18.04
 
 LABEL maintainer="liosha (using config of Tobias Vollmer <info+docker@tvollmer.de> as source)"
 
-# Build argument (e.g. "build01497")
-ARG freenet_build
+# Freenet v01497
 
 ENV allowedhosts=172.17.0.0/24,127.0.0.1,0:0:0:0:0:0:0:1
 ENV darknetport=12345
@@ -16,8 +15,10 @@ CMD ["sh", "-c", "$FRED_HOME/docker-run.sh"]
 
 HEALTHCHECK --interval=5m --timeout=3s CMD $FRED_HOME/run.sh status || exit 1
 
+USER root
+
 RUN apt-get update \
-	&& apt-get install -y sudo apt-utils openssl binutils openjdk-11-jre \
+	&& apt-get install -y sudo cron binutils openjdk-11-jre \
     && ln -s /lib /lib64
 
 ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-armhf
@@ -34,10 +35,6 @@ COPY ./build-image/docker-run.sh docker-run.sh
 COPY ./build-image/new_installer_offline_1497.jar /tmp/new_installer.jar
 COPY ./build-image/install_options.conf /tmp/install_options.conf
 
-RUN chown -Rc fred:fredg $FRED_HOME \
-    && chmod -Rc 700 $FRED_HOME \
-    && chmod +x freenet-run.sh
-
 VOLUME ["$FRED_HOME/conf", "$FRED_HOME/data"]
 
 USER fred:fredg
@@ -51,6 +48,6 @@ USER root
 RUN rm /tmp/new_installer.jar /tmp/install_options.conf \
     && echo "Build successful" \
     && echo "----------------" \
-    && cat $FRED_HOME/wrapper.conf
-
-RUN chmod 700 $FRED_HOME/docker-run.sh $FRED_HOME/freenet-run.sh $FRED_HOME/run.sh
+    && ln $FRED_HOME/bin/wrapper-linux-armhf-32 $FRED_HOME/bin/wrapper \
+    && cat $FRED_HOME/wrapper.conf \
+    && chmod -c 774 $FRED_HOME/docker-run.sh
