@@ -13,7 +13,6 @@ chmod -c 774 $FRED_HOME/docker-run.sh $FRED_HOME/freenet-run.sh $FRED_HOME/run.s
 whoami
 pwd
 ls -la
-ls -la $FRED_HOME/bin
 
 # Run freenet by fred user
 exec sudo -u fred $FRED_HOME/freenet-run.sh
