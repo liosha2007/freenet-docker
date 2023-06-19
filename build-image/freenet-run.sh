@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 FRED_HOME=/home/fred
 

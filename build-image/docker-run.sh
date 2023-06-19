@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 FRED_HOME=/home/fred
 
@@ -7,4 +7,4 @@ chown -R fred:fredg $FRED_HOME
 chmod 664 $FRED_HOME/data $FRED_HOME/conf
 
 # Run freenet by fred user
-exec su-exec fred $FRED_HOME/freenet-run.sh
+exec sudo -u fred $FRED_HOME/freenet-run.sh

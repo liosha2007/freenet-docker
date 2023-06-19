@@ -3,14 +3,14 @@ services:
   freenet:
     container_name: freenet
     image: freenet:arm32v7-ubuntu-18.04-01497-ofi
-    restart: no
+    restart: unless-stopped
     #network_mode: "host"
     network_mode: "bridge"
     ports:
       - "8888:8888"
-      - "9481:9481"
-      - "12345:12345/udp"
-      - "12346:12346/udp"
+      - "9581:9481"
+      - "22345:12345/udp"
+      - "22346:12346/udp"
     volumes:
       - freenet_conf:/home/fred/conf
       - freenet_data:/home/fred/data
@@ -18,7 +18,7 @@ services:
 #      - "/mnt/freenet-data/conf:/home/fred/conf:rw"
 #      - "/mnt/freenet-data/data:/home/fred/data:rw"
     environment:
-      - allowedhosts=172.17.0.0/24,127.0.0.1,0:0:0:0:0:0:0:1
+      - allowedhosts=172.17.0.0/24,127.0.0.1,192.168.0.105,0:0:0:0:0:0:0:1
       - darknetport=12345
       - opennetport=12346
 volumes:
