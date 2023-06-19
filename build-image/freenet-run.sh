@@ -21,6 +21,7 @@ trap 'trapexit' SIGTERM
 
 if [ ! -f "$FRED_HOME/conf/freenet.ini" ]; then
     cp "$FRED_HOME/default-freenet.ini" "$FRED_HOME/conf/freenet.ini"
+    ln -s "$FRED_HOME/conf/freenet.ini" "$FRED_HOME/freenet.ini"
     sed -i "s#ALLOWEDHOSTS#$allowedhosts#" "$FRED_HOME/conf/freenet.ini"
     sed -i "s#DARKNETPORT#$darknetport#" "$FRED_HOME/conf/freenet.ini"
     sed -i "s#OPENNETPORT#$opennetport#" "$FRED_HOME/conf/freenet.ini"

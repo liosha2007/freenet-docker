@@ -25,7 +25,7 @@ ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-armhf
 
 RUN groupadd -g 1000 fredg \
     && useradd -u 1000 -g fredg -m -d $FRED_HOME fred \
-    && mkdir -p $FRED_HOME/conf $FRED_HOME/data
+    && mkdir -p $FRED_HOME/conf $FRED_HOME/data $FRED_HOME/data/logs
 
 WORKDIR $FRED_HOME
 
@@ -41,7 +41,9 @@ USER fred:fredg
 
 RUN cat /tmp/install_options.conf \
     && java -DDEBUG=true -jar /tmp/new_installer.jar -debug -trace -options /tmp/install_options.conf \
-    && sed -i "s#wrapper.app.parameter.1=freenet.ini#wrapper.app.parameter.1=$FRED_HOME/conf/freenet.ini#" $FRED_HOME/wrapper.conf
+    && sed -i "s#wrapper.app.parameter.1=freenet.ini#wrapper.app.parameter.1=$FRED_HOME/conf/freenet.ini#" $FRED_HOME/wrapper.conf \
+    && rm $FRED_HOME/freenet.ini \
+    && cat $FRED_HOME/wrapper.conf
 
 USER root
 
@@ -49,5 +51,4 @@ RUN rm /tmp/new_installer.jar /tmp/install_options.conf \
     && echo "Build successful" \
     && echo "----------------" \
     && ln $FRED_HOME/bin/wrapper-linux-armhf-32 $FRED_HOME/bin/wrapper \
-    && cat $FRED_HOME/wrapper.conf \
     && chmod -c 774 $FRED_HOME/docker-run.sh
