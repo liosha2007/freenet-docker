@@ -29,3 +29,7 @@ Examples:
 * x86-alpine-openjdk12-01497-ofi
 * arm32v7-ubuntu-18.04-01497-oni
 * arm32v7-ubuntu-18.04-01497-ofi
+
+## Testing
+
+This branch (`arm32v7-ubuntu-18.04-01497-ofi`) is tested on NaniPi NEO 512M (Host OS is `Armbian 23.05.1 Bookworm with Linux 6.1.30-sunxi`)
